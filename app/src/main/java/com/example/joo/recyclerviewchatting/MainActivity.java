@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     break;
             }
         } else if (v.getId() == R.id.btnClear) {
-            mAdapter.clear();
+            //mAdapter.clear();
         }
         editMsg.setText("");
         recyclerView.smoothScrollToPosition(mAdapter.getItemCount() - 1);
