@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RecyclerViewChatting</string>
+    <string name="btnSend">Send</string>
+    <string name="btnClear">Clear</string>
+    <string name="radio_Charles">Charles</string>
+    <string name="radio_John">John</string>
+    <string name="radio_date">Date</string>
+    <string name="text_init">message</string>
+</resources>
