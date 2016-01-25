@@ -2,6 +2,7 @@ package com.example.joo.recyclerviewchatting;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btn;
     RadioGroup radioGroup;
     ChattingAdapter mAdapter;
+    RecyclerView.LayoutManager layoutManager;
 
     int[] btnRes = {
             R.id.btnSend,
@@ -33,11 +35,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         mAdapter = new ChattingAdapter();
         setBtnListener(btnRes);
+
+        recyclerView.setAdapter(mAdapter);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
     }
 
     private void setBtnListener(int[] btnRes) {
         for (int i : btnRes) {
-            btn = (Button) findViewById(btnRes[i]);
+            btn = (Button) findViewById(i);
             btn.setOnClickListener(this);
         }
     }
@@ -65,9 +71,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     mAdapter.add(dd);
                     break;
             }
-            editMsg.setText("");
         } else if (v.getId() == R.id.btnClear) {
-
+            mAdapter.clear();
         }
+        editMsg.setText("");
+        recyclerView.smoothScrollToPosition(mAdapter.getItemCount() - 1);
     }
 }

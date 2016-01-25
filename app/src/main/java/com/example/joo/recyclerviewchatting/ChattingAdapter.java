@@ -67,4 +67,9 @@ public class ChattingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         items.add(data);
         notifyDataSetChanged();
     }
+
+    public void clear() {
+        items.clear();
+        notifyDataSetChanged();
+    }
 }
